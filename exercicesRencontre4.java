@@ -6,7 +6,7 @@ public class exercicesRencontre4 {
         System.out.println("## ASSIGNATIONS ##");
         // Créez un array nommé noms qui contient les noms de 5 personnes
 
-        // Créez un array contenant les taille de ces 5 personnes en ordre
+        // Créez un array contenant les tailles de ces 5 personnes en ordre
 
         System.out.println("## UTILISATIONS ##");
 
@@ -15,7 +15,7 @@ public class exercicesRencontre4 {
         // Afficher la longueur du tableau noms
 
         System.out.println("## BOUCLES ##");
-        // Afficher le nom et la tailles de toutes les personnes dans les tableaus ci-dessus
+        // Afficher le nom et la taille de toutes les personnes dans le tableau noms.
 
     }
     // Déclarer une fontion qui prend en argument un tableau de int et renvoi l'avant dernier le plus grand.
