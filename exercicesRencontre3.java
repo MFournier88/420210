@@ -1,4 +1,3 @@
-package poo;
 import java.util.Scanner;
 
 public class exercicesRencontre3 {
