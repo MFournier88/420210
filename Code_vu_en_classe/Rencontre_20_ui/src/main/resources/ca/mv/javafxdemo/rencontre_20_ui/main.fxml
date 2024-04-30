@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane id="stageUI" hgap="15.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" stylesheets="@../../../../main.css" vgap="10.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.mv.javafxdemo.rencontre_20_ui.MainController">
+  <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="98.0" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="106.0" minWidth="10.0" prefWidth="200.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="75.4" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="76.8" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="89.4" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="96.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="52.799999999999955" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="52.799999999999955" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <padding>
+      <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+   </padding>
+   <children>
+      <Button id="btnText" mnemonicParsing="false" onAction="#onClickBtnClick" prefHeight="40.0" prefWidth="90.0" text="=" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+      <Button mnemonicParsing="false" onAction="#onClickBtnClick" prefHeight="41.0" prefWidth="91.0" text="1" GridPane.rowIndex="4">
+         <padding>
+            <Insets bottom="8.0" left="25.0" right="25.0" top="8.0" />
+         </padding>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#onClickBtnClick" prefHeight="40.0" prefWidth="90.0" text="+" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+      <Button layoutX="50.0" layoutY="325.0" mnemonicParsing="false" onAction="#onClickBtnClick" prefHeight="41.0" prefWidth="91.0" text="3" GridPane.columnIndex="2" GridPane.rowIndex="4">
+         <padding>
+            <Insets bottom="8.0" left="25.0" right="25.0" top="8.0" />
+         </padding>
+      </Button>
+      <Button layoutX="50.0" layoutY="59.0" mnemonicParsing="false" onAction="#onClickBtnClick" prefHeight="41.0" prefWidth="91.0" text="2" GridPane.columnIndex="1" GridPane.rowIndex="4">
+         <padding>
+            <Insets bottom="8.0" left="25.0" right="25.0" top="8.0" />
+         </padding>
+      </Button>
+      <Button layoutX="179.0" layoutY="325.0" mnemonicParsing="false" onAction="#onClickBtnClick" prefHeight="41.0" prefWidth="91.0" text="4" GridPane.rowIndex="3">
+         <padding>
+            <Insets bottom="8.0" left="25.0" right="25.0" top="8.0" />
+         </padding>
+      </Button>
+      <Button layoutX="50.0" layoutY="260.0" mnemonicParsing="false" onAction="#onClickBtnClick" prefHeight="41.0" prefWidth="91.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="3">
+         <padding>
+            <Insets bottom="8.0" left="25.0" right="25.0" top="8.0" />
+         </padding>
+      </Button>
+      <Button layoutX="179.0" layoutY="260.0" mnemonicParsing="false" onAction="#onClickBtnClick" prefHeight="41.0" prefWidth="91.0" text="6" GridPane.columnIndex="2" GridPane.rowIndex="3">
+         <padding>
+            <Insets bottom="8.0" left="25.0" right="25.0" top="8.0" />
+         </padding>
+      </Button>
+      <Button layoutX="296.0" layoutY="260.0" mnemonicParsing="false" onAction="#onClickBtnClick" prefHeight="41.0" prefWidth="91.0" text="7" GridPane.rowIndex="2">
+         <padding>
+            <Insets bottom="8.0" left="25.0" right="25.0" top="8.0" />
+         </padding>
+      </Button>
+      <Button layoutX="50.0" layoutY="192.0" mnemonicParsing="false" onAction="#onClickBtnClick" prefHeight="41.0" prefWidth="91.0" text="9" GridPane.columnIndex="2" GridPane.rowIndex="2">
+         <padding>
+            <Insets bottom="8.0" left="25.0" right="25.0" top="8.0" />
+         </padding>
+      </Button>
+      <Button layoutX="50.0" layoutY="59.0" mnemonicParsing="false" onAction="#onClickBtnClick" prefHeight="41.0" prefWidth="91.0" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <padding>
+            <Insets bottom="8.0" left="25.0" right="25.0" top="8.0" />
+         </padding>
+      </Button>
+      <TextField fx:id="resultatCalcul" alignment="CENTER_RIGHT" prefHeight="42.0" prefWidth="387.0" text="0" GridPane.columnSpan="3" />
+      <Button layoutX="479.0" layoutY="195.0" mnemonicParsing="false" onAction="#onClickBtnClick" prefHeight="40.0" prefWidth="90.0" text="&lt;" GridPane.columnIndex="3" GridPane.halignment="LEFT" />
+      <Button layoutX="479.0" layoutY="256.0" mnemonicParsing="false" onAction="#onClickBtnClick" prefHeight="40.0" prefWidth="90.0" text="-" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+      <Button layoutX="479.0" layoutY="188.0" mnemonicParsing="false" onAction="#onClickBtnClick" prefHeight="40.0" prefWidth="90.0" text="*" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+      <Button layoutX="469.0" layoutY="126.0" mnemonicParsing="false" onAction="#onClickBtnClick" prefHeight="40.0" prefWidth="90.0" text="/" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+      <Button layoutX="164.0" layoutY="280.0" mnemonicParsing="false" onAction="#onClickBtnClick" prefHeight="41.0" prefWidth="91.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+         <padding>
+            <Insets bottom="8.0" left="25.0" right="25.0" top="8.0" />
+         </padding>
+      </Button>
+   </children>
+</GridPane>
