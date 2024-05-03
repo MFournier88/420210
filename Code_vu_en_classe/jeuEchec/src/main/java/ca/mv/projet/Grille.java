@@ -1,5 +1,6 @@
 package ca.mv.projet;
 
+import ca.mv.projet.composants.PieceImage;
 import ca.mv.projet.models.Echiquier;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
@@ -22,13 +23,11 @@ public class Grille {
         // TODO: ajouter le code approprié
     }
 
-    public ImageView creerImageView(int colonne, int ligne, StackPane stackPane) {
-        ImageView imgPieces = new ImageView((getClass().getResource("images/pieces/" +
+    public ImageView creerPieceImage(int colonne, int ligne, StackPane stackPane) {
+        PieceImage imgPieces = new PieceImage((getClass().getResource("images/pieces/" +
                 echiquier.getCaseParPosition(ligne, colonne).getPiece()
-                        .getImage()).toExternalForm()));
+                        .getImage()).toExternalForm()), stackPane.widthProperty().subtract(8));
         stackPane.getChildren().add(imgPieces);
-        imgPieces.fitWidthProperty().bind(stackPane.widthProperty().subtract(8));
-        imgPieces.fitHeightProperty().bind(stackPane.heightProperty().subtract(8));
 
         return imgPieces;
     }
