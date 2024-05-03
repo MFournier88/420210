@@ -1,4 +1,4 @@
-package ca.mv.projet.composants;
+package ca.mv.projet;
 
 import ca.mv.projet.models.Echiquier;
 import javafx.fxml.FXML;

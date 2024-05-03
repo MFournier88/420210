@@ -25,7 +25,7 @@ public class Position {
     }
 
     public int convertirEnIndex(){
-        return x + y * Utilities.NB_CASES_COTE;
+        return x * Utilities.NB_CASES_COTE + y;
     }
 
     @Override
