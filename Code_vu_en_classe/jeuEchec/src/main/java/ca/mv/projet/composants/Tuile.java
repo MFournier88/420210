@@ -15,12 +15,11 @@ public class Tuile extends StackPane {
     Position position;
 
     @FXML
-    PieceImage image;
+    static PieceImage image;
 
     public Tuile(boolean estCaseBlanche) {
         // TODO: Ajouter le code manquant
-        // Créer un réctagle et
-        // ajouter le comme enfant de l'objet courrant
+        // Créer un réctagle et ajouter le comme enfant de l'objet courrant (this)
         ajouterEvenementsTuile();
     }
 
@@ -40,12 +39,15 @@ public class Tuile extends StackPane {
     }
 
     public void ajouterEvenementsTuile() {
+        // Gestion évènement au drag
         this.setOnDragOver(event -> {
             ajouterEvenementsTuileFinDrag(event);
         });
 
-        // TODO: ajouter la gestion des evènements manquants
-        // en lien avec le drag-and-drop
+        // Gestion évènement au drop
+        this.setOnDragDropped(event -> {
+            ajouterEvenementsTuileDragDrop(event);
+        });
     }
 
     public Tuile getTuileParPosition(Position destPos) {
@@ -64,22 +66,22 @@ public class Tuile extends StackPane {
             event.acceptTransferModes(TransferMode.MOVE);
         }
         event.consume();
-
     }
 
-    // TODO : Complétez le code si vous allez utiliser cet evenement sinon remplacer le par le bon
-    public void ajouterEvenementsTuileDragDrop() {
-        this.setOnDragDropped(event -> {
-            Dragboard db = event.getDragboard();
-            if (db.hasImage()) {
-                // Logique pour vérifier le mouvement valide
-                // Si valide, déplacez la pièce ici
-                event.setDropCompleted(true);
-            } else {
-                event.setDropCompleted(false);
-            }
-            event.consume();
-        });
+    // TODO : Complétez le code manquant
+    public void ajouterEvenementsTuileDragDrop(DragEvent event) {
+        Dragboard db = event.getDragboard();
+        if (db.hasImage()) {
+            // TODO: modifier le code et ajouter la gestion des cases et
+            //  le cas de case destination contenant une piece (manger la piece)
+            // Logique pour vérifier le mouvement valide
+            // Si valide, déplacez la pièce ici
+            this.getChildren().add(image);
+            event.setDropCompleted(true);
+        } else {
+            event.setDropCompleted(false);
+        }
+        event.consume();
     }
 
     @Override
