@@ -8,6 +8,8 @@ public class Utilities {
     public static final int NB_CASES_COTE = 8;
     public static final int DERNIERE_POS = NB_CASES_COTE - 1;
     public static final int PREMIERE_POS = 0;
+    public static final String PIECES_IMG_URL = "images/pieces/";
+    public static final double IMAGE_MARGIN = 8;
 
     public static int convertirPixelEnPos(double pixels){
         // TODO : à tester
