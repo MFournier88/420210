@@ -1,5 +1,6 @@
 package ca.mv.projet.composants;
 
+import ca.mv.projet.Jeu;
 import ca.mv.projet.models.Echiquier;
 import ca.mv.projet.models.cases.Position;
 import javafx.fxml.FXML;
@@ -24,7 +25,7 @@ public class Tuile extends StackPane {
         ajouterEvenementsTuile();
     }
 
-    public Tuile(int ligne, int colonne, Echiquier echiquier) {
+    public Tuile(int ligne, int colonne, Jeu jeu) {
         // TODO: Compléter le code manquant
         // appeler le constructeur à un paramètre
         // initialiser la attributs d'instance

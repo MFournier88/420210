@@ -17,7 +17,7 @@ public class ApplicationJeu extends Application {
         //  décommenter le code en commentaire au bon moment pour que le code compile
         HBox root = new HBox();
         jeu = new Jeu();
-        grille = new Grille(jeu.echiquier);
+        grille = new Grille(jeu);
         grille.dessinerTuiles();
         //root.getChildren().add(grille.grid);
         Scene scene = new Scene(root, Utilities.SCENE_WIDTH, Utilities.SCENE_HIEGHT);

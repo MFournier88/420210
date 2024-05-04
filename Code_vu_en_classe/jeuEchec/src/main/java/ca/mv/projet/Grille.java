@@ -9,13 +9,15 @@ import javafx.scene.layout.GridPane;
 public class Grille {
 
     private final Echiquier echiquier;
+    private final Jeu jeu;
     @FXML
     GridPane grid;
     // TODO: ajouter les attributs manquants
 
-    public Grille(Echiquier echiquier) {
+    public Grille(Jeu jeu) {
         creerGrille();
-        this.echiquier = echiquier;
+        this.jeu = jeu;
+        this.echiquier = jeu.echiquier;
     }
 
     private void creerGrille() {
