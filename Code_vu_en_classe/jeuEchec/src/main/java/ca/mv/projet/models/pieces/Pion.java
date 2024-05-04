@@ -13,9 +13,41 @@ public class Pion extends Piece {
 
     @Override
     public boolean peutBouger(Position posCourante, Position posDestination, Echiquier echiquier) {
-        // TODO: remplacer par le code approprié
-        System.out.println("peutBouger pion");
-        return true;
+        int direction = estBlanc ? -1 : 1; // La couleur détermine la direction du mouvement
+        int pasX = (posDestination.getX() - posCourante.getX()) * direction; // le pion bouge 
+        int pasY = (posDestination.getY() - posCourante.getY());
+        Piece pieceDest = echiquier.getCaseParPosition(posDestination).getPiece();
+        // Logique simplifiée : Pion se déplace d'une case vers l'avant, capture en diagonale
+        return estDeplacLegal(pasX,
+                              pasY,
+                              posCourante.equals(positionInitiale),
+                    pieceDest == null,
+                this.estBlanc != pieceDest.estBlanc);
+    }
+
+    public static boolean estDeplacLegal(int pasX, int pasY, boolean estPremierMouve,
+                                  boolean estCaseVides, boolean estPieceAdversaire) {
+        boolean estDeplacLegalSurY = false;
+        boolean estDeplacLegalSurX = false;
+
+        if(estCaseVides) {
+            estDeplacLegalSurY = pasY == 0;
+            // Premier mouvement
+            if (estPremierMouve) {
+                estDeplacLegalSurX = pasX == 1 || pasX == 2;
+                // Mouvement simple
+            } else {
+                estDeplacLegalSurX = pasX == 1;
+            }
+            // Capture en diagonale
+        } else {
+            if(estPieceAdversaire) {
+                estDeplacLegalSurX = pasX == 1;
+                estDeplacLegalSurY = Math.abs(pasY) == 1;
+            }
+        }
+
+        return estDeplacLegalSurX && estDeplacLegalSurY;
     }
 
     public Piece promouvoir(String type) {
