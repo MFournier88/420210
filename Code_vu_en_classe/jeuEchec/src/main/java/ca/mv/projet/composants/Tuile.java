@@ -13,6 +13,7 @@ import javafx.scene.shape.Rectangle;
 public class Tuile extends StackPane {
     Echiquier echiquier;
     Position position;
+    static Position posSource;
 
     @FXML
     static PieceImage image;
@@ -40,6 +41,10 @@ public class Tuile extends StackPane {
 
     public void ajouterEvenementsTuile() {
         // Gestion évènement au drag
+        this.setOnMouseDragged(mouseEvent -> {
+            ajouterEvenementsTuileSourisDragged();
+        });
+
         this.setOnDragOver(event -> {
             ajouterEvenementsTuileFinDrag(event);
         });
@@ -50,6 +55,13 @@ public class Tuile extends StackPane {
         });
     }
 
+    private void ajouterEvenementsTuileSourisDragged() {
+        if(this.getChildren().size() == 2){
+            image = (PieceImage) this.getChildren().get(1);
+        }
+        posSource = this.position;
+    }
+
     public Tuile getTuileParPosition(Position destPos) {
         GridPane parent = (GridPane) (this.getParent());
 
@@ -58,10 +70,6 @@ public class Tuile extends StackPane {
 
     public void ajouterEvenementsTuileFinDrag(DragEvent event) {
         if (event.getGestureSource() != this && event.getDragboard().hasImage()) {
-            if (this.getChildren().size() == 2) {
-                image = (PieceImage) this.getChildren().get(1);
-            }
-
             // TODO: ajouter le code approprié si nécessaire
             event.acceptTransferModes(TransferMode.MOVE);
         }
@@ -76,7 +84,15 @@ public class Tuile extends StackPane {
             //  le cas de case destination contenant une piece (manger la piece)
             // Logique pour vérifier le mouvement valide
             // Si valide, déplacez la pièce ici
+
+
+            // TODO : Rajoutez la condition : si la tuile courante (this) a 2 enfants donc on enleve le 2eme (pos 1)
+            // Remarque : la methode remove par position retourne l'objet enlevé
+                    PieceImage imageMangee = (PieceImage) this.getChildren().remove(1);
+
             this.getChildren().add(image);
+            // TODO : appeler setCaseParPosition qui remplace le contenu de la case destination par celui de la case source
+            // et met la case source a une case vide
             event.setDropCompleted(true);
         } else {
             event.setDropCompleted(false);
