@@ -42,18 +42,12 @@ public class Tuile extends StackPane {
 
     public void ajouterEvenementsTuile() {
         // Gestion évènement au drag
-        this.setOnMouseDragged(mouseEvent -> {
-            ajouterEvenementsTuileSourisDragged();
-        });
+        this.setOnMouseDragged(mouseEvent -> ajouterEvenementsTuileSourisDragged());
 
-        this.setOnDragOver(event -> {
-            ajouterEvenementsTuileFinDrag(event);
-        });
+        this.setOnDragOver(event -> ajouterEvenementsTuileFinDrag(event));
 
         // Gestion évènement au drop
-        this.setOnDragDropped(event -> {
-            ajouterEvenementsTuileDragDrop(event);
-        });
+        this.setOnDragDropped(event -> ajouterEvenementsTuileDragDrop(event));
     }
 
     private void ajouterEvenementsTuileSourisDragged() {
