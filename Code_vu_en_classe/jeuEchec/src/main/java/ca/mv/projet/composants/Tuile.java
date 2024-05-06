@@ -12,7 +12,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Rectangle;
 
 public class Tuile extends StackPane {
-    Echiquier echiquier;
+    Jeu jeu;
     Position position;
     static Position posSource;
 

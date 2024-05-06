@@ -11,30 +11,38 @@ public class Pion extends Piece {
         this.positionInitiale = positionInitiale;
     }
 
-    @Override
     public boolean peutBouger(Position posCourante, Position posDestination, Echiquier echiquier) {
         int direction = estBlanc ? -1 : 1; // La couleur détermine la direction du mouvement
-        int pasX = (posDestination.getX() - posCourante.getX()) * direction; // le pion bouge 
+        int pasX = (posDestination.getX() - posCourante.getX()) * direction; // le pion bouge
         int pasY = (posDestination.getY() - posCourante.getY());
         Piece pieceDest = echiquier.getCaseParPosition(posDestination).getPiece();
+        Piece pieceProchain = echiquier.getCaseParPosition(posCourante.getX() + direction, posCourante.getY())
+                .getPiece();
         // Logique simplifiée : Pion se déplace d'une case vers l'avant, capture en diagonale
         return estDeplacLegal(pasX,
-                              pasY,
-                              posCourante.equals(positionInitiale),
-                    pieceDest == null,
-                this.estBlanc != pieceDest.estBlanc);
+                pasY,
+                posCourante.equals(positionInitiale),
+                pieceDest == null,
+                pieceProchain == null,
+                this.estBlanc != (pieceDest != null && pieceDest.estBlanc));
     }
 
     public static boolean estDeplacLegal(int pasX, int pasY, boolean estPremierMouve,
-                                  boolean estCaseVides, boolean estPieceAdversaire) {
+                                         boolean destEstCaseVides, boolean estProchainePiecevide,
+                                         boolean estPieceAdversaire) {
         boolean estDeplacLegalSurY = false;
         boolean estDeplacLegalSurX = false;
 
-        if(estCaseVides) {
+        if(destEstCaseVides) {
             estDeplacLegalSurY = pasY == 0;
             // Premier mouvement
             if (estPremierMouve) {
                 estDeplacLegalSurX = pasX == 1 || pasX == 2;
+                // le cas ou les deux cases contiennent des pieces
+                if(pasX == 2) {
+                    estDeplacLegalSurX = estDeplacLegalSurX
+                            && estProchainePiecevide;
+                }
                 // Mouvement simple
             } else {
                 estDeplacLegalSurX = pasX == 1;
