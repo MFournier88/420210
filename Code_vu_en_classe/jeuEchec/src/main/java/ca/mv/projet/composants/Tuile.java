@@ -28,6 +28,8 @@ public class Tuile extends StackPane {
     public Tuile(int ligne, int colonne, Jeu jeu) {
         // TODO: Compléter le code manquant
         // appeler le constructeur à un paramètre
+        // Note le jeu contien l'echiquier qui lui a des méthodes
+        // qui vous permettent de réccupérer la case par ligne et colonne
         // initialiser la attributs d'instance
     }
 

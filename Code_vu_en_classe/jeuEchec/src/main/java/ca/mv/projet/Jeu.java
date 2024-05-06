@@ -5,7 +5,7 @@ import ca.mv.projet.models.Joueur;
 
 public class Jeu {
     // TODO: ajouter le code manquant
-    Echiquier echiquier;
+    public Echiquier echiquier;
     Joueur joueur1;
     Joueur joueur2;
 
