@@ -115,5 +115,21 @@ public class Echiquier {
 
         return getCaseParPosition(posY, posX);
     }
+
+    public boolean estValidMouve(Position posCourante, Position posDestination){
+        Case caseCourante = getCaseParPosition(posCourante);
+        Case caseDestination = getCaseParPosition(posDestination);
+
+        return peutBouger(caseCourante.getPiece(), posCourante, posDestination)
+                && peutCapturer(caseCourante, caseDestination);
+    }
+
+    public boolean peutCapturer(Case caseCourante, Case caseDestination) {
+        return caseCourante.getPiece().peutCapturer(caseDestination.getPiece());
+    }
+
+    public boolean peutBouger(Piece pieceCourante, Position positionCourante, Position posDestination) {
+        return pieceCourante.peutBouger(positionCourante, posDestination, this);
+    }
 }
 
