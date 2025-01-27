@@ -1,6 +1,4 @@
-package solution1;
-
-public class Exo20_B{
+public class Exo20{
     public static void main(String args[]){
         int[] tableau = new int[10000];
         for (int i = 0; i < tableau.length ; i++){
