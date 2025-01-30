@@ -13,10 +13,7 @@ public class Exo20{
         int indicePivot = end;
         int mem = 0;
         for(int i = end - 1 ; i >= start ; i--){
-            if(tableau[i] < tableau[indicePivot]){
-                ;
-            }
-            else{
+            if(tableau[i] > tableau[indicePivot]){
                 mem = tableau[i];
                 tableau[i] = tableau[indicePivot - 1];
                 tableau[indicePivot - 1] = tableau[indicePivot];
