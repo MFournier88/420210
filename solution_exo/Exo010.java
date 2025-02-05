@@ -11,7 +11,7 @@
 // Le minimum est : 30
 // ```
 
-public class Exo10 {
+public class Exo010 {
     public static void main(String[] args) {
         int[] tableau = new int[5];
     

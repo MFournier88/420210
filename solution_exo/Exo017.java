@@ -13,7 +13,7 @@
 // ```
 // Il y a 5 voyelles dans le tableau.
 // ```
-public class Exo17 {
+public class Exo017 {
     public static void main(String[] args) {
         char[] tableau = {'a', 'b', 'e', 'f', 'i', 'o', 'u', 'p'};
         char[] voyelles = {'a', 'e', 'i', 'o', 'u', 'y'};

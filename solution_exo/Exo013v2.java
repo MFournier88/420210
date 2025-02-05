@@ -8,7 +8,7 @@
 // ```
 // [5,1,2,4,6,7,8]
 // ```
-public class Exo13v2 {
+public class Exo013v2 {
     public static void main(String[] args) {
         int[] tableau = new int[100000];
 

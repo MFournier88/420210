@@ -1,5 +1,5 @@
 
-public class Exo4 {
+public class Exo004 {
     public static void main(String args[]){
         //--------------------------------------------------------------------
         // Afficher le résulat de ces opérations sans l'écrire explicitement

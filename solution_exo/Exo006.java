@@ -1,5 +1,5 @@
 
-public class Exo6 {
+public class Exo006 {
     public static void main(String args[]){
         //--------------------------------------------------------------------
         // Afficher le résulat de ces comparaisons sans l'écrire explicitement

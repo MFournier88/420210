@@ -17,7 +17,7 @@
 // Note en lettre qu'un étudiant obtient au cours
     
 // Les mois de l'année sous format texte 
-public class Exo3 {
+public class Exo003 {
     public static void main(String[] args) {
         byte age = 42;
         System.out.println("L'âge est une valeur < 128, donc j'utilise un byte : " + age);

@@ -24,7 +24,7 @@
 // ```
 // ---
 
-public class Exo18 {
+public class Exo018 {
     public static void main(String[] args) {
 
         int[] tableau = new int[10000];

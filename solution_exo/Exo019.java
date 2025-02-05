@@ -23,7 +23,7 @@
 // [4,22,23,43,54,73,75,77,78,88]
 
 // ```
-public class Exo19 {
+public class Exo019 {
     public static void main(String[] args) {
         int[] tableau = new int[10];
 

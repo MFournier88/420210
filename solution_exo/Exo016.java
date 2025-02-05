@@ -17,7 +17,7 @@
 // [5,1,2,2,0,4,5,6,6,7]
 // Différent
 // ```
-public class Exo16 {
+public class Exo016 {
     public static void main(String[] args) {
         int[] tab1 = {5,1,2,2,1,4,5,6,6,7};
         int[] tab2 = {5,1,2,2,0,4,5,6,6,7};

@@ -1,25 +1,31 @@
 // - Créez un tableau d'entiers de taille 5. Remplissez le de 5 nombres aléatoires entre 0 et 100. 
 // - Affichez le
-// - Calculez la moyenne des éléments du tableau et affichez-la.
+// - Inverser l'ordre des éléments du tableau.
+// - Affichez le
 
 // **Exemple de sortie attendue** :
-
 // ```
 // [45,30,56,77,34]
-// La moyenne des éléments du tableau est : 48.4
+// [34,77,56,30,45]
 // ```
-public class Exo12 {
+public class Exo011 {
     public static void main(String[] args) {
         int[] tableau = new int[5];
-        double somme = 0;
+
         for(int i = 0; i < tableau.length; i++){
             tableau[i] = (int)(Math.random() * 101);
-            somme += tableau[i];
         }
-        
+
         afficherTableau(tableau);
-        System.out.println("La moyenne est de : " + somme/tableau.length);
-       
+        
+        int mem;
+        for(int i = 0; i < tableau.length/2; i++){
+            mem = tableau[i];
+            tableau[i] = tableau[tableau.length - 1 - i];
+            tableau[tableau.length - 1 - i] = mem;
+        }
+
+        afficherTableau(tableau);
     
     }
     public static void afficherTableau(int[] tableau){

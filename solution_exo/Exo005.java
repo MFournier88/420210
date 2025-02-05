@@ -1,5 +1,5 @@
 
-public class Exo5 {
+public class Exo005 {
     public static void main(String args[]){
         int demo = 0;
         //--------------------------------------------------------------------

@@ -7,7 +7,7 @@
 // La somme des éléments du tableau : 242
 // ```
 
-public class Exo9 {
+public class Exo009 {
     public static void main(String[] args) {
         int[] tableau = new int[5];
 

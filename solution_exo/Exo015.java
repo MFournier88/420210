@@ -15,7 +15,7 @@
 // Il y a 5 nombres pairs dans ce tableau
 // ```
 
-public class Exo15 {
+public class Exo015 {
     public static void main(String[] args) {
         int[] tableau = new int[10];
 
