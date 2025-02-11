@@ -19,7 +19,7 @@ public class Exo011 {
         afficherTableau(tableau);
         
         int mem;
-        for(int i = 0; i < tableau.length/2; i++){
+        for(int i = 0; i < tableau.length; i++){
             mem = tableau[i];
             tableau[i] = tableau[tableau.length - 1 - i];
             tableau[tableau.length - 1 - i] = mem;

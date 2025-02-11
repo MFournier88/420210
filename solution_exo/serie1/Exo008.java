@@ -17,7 +17,7 @@ public class Exo008 {
         for(int i = 0; i < tableau.length-1; i++){
             System.out.print(tableau[i] + ",");
         }
-        System.out.print(tableau[tableau.length-1]);
+        System.out.print(tableau[tableau.length - 1]);
 
         System.out.println("]");
         
