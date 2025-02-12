@@ -88,7 +88,7 @@ public class Exo071{
             System.out.println("2. Retirer un item");
             System.out.println("3. Afficher le reçu");
             System.out.println("4. Terminer la transaction");
-            String choix = scanner.next();
+            String choix = scanner.nextLine();
             System.out.println("Vous avez choisi : " + choix);
             System.out.println("Appuyer sur enter pour continuer");
             System.out.println("");
@@ -100,7 +100,7 @@ public class Exo071{
                 }
 
                 System.out.print("Entrez le numéro de l'item : ");
-                choix = scanner.next();
+                choix = scanner.nextLine();
                 facture.add(plats[Integer.parseInt(choix) - 1]);
             }
             else if(choix.equals("2")){
@@ -108,7 +108,7 @@ public class Exo071{
                 afficherReçu(facture, prix);
 
                 System.out.print("Quel item voulez-vous retirer : ");
-                choix = scanner.next();
+                choix = scanner.nextLine();
                 facture.remove(Integer.parseInt(choix));
             }
             else if(choix.equals("3")){
@@ -120,8 +120,7 @@ public class Exo071{
                 System.out.println("Merci pour votre visite!");
                 break;
             }
-            //Ce n'est pas très beau, je vais essayer de trouver qqch de meilleur
-            scanner.nextLine(); scanner.nextLine();
+            scanner.nextLine();
       
 
         }

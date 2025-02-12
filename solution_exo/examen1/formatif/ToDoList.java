@@ -1,7 +1,13 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 public class ToDoList {
-    
+    public static String repetition(String mot, int nombre){
+        String somme = "";
+        for( int i = 0; i < nombre; i++){
+            somme += mot;
+        }
+        return somme;
+    }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -19,11 +25,11 @@ public class ToDoList {
 
 
             System.out.print("Entrez votre choix : ");
-            choix = scanner.next();
+            choix = scanner.nextLine();
 
             if(choix.equals("1")){
                 System.out.print("Entrez la tâche à ajouter : ");
-                choix = scanner.next();
+                choix = scanner.nextLine();
     
                 taches.add(choix);
                 isDone.add(false);
@@ -31,7 +37,7 @@ public class ToDoList {
             }
             else if(choix.equals("2")){
                 System.out.print("Entrez le numéro de la tâche à marquer comme terminée : ");
-                choix = scanner.next();
+                choix = scanner.nextLine();
                 isDone.set(Integer.parseInt(choix),true);
                 System.out.println("Tâche terminée : " + taches.get(Integer.parseInt(choix)));
             }
@@ -43,7 +49,7 @@ public class ToDoList {
                 System.out.println("\nMerci d'avoir utilisé le gestionnaire de tâches!");
                 break;
              }
-            scanner.nextLine();scanner.nextLine();
+            scanner.nextLine();
 
 
             System.out.println("\n" + "-".repeat(60) + "\n");
