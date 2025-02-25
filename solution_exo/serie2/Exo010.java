@@ -8,38 +8,43 @@ import java.util.Collections;
 public class Exo010 {
     public static void main(String[] args) {
         Random random = new Random(1);
+
+        
         Groupe groupe4 = new Groupe(
-            Arrays.asList(
-                new Etudiant(1832491, "Alice"),
-                new Etudiant(2468103, "Bob"),
-                new Etudiant(3726145, "Charlie"),
-                new Etudiant(4859021, "David"),
-                new Etudiant(5983472, "Eve"),
-                new Etudiant(6129048, "Frank"),
-                new Etudiant(7235146, "Grace"),
-                new Etudiant(8376012, "Hannah"),
-                new Etudiant(9453023, "Isaac"),
-                new Etudiant(1023485, "Jack"),
-                new Etudiant(2135749, "Karen"),
-                new Etudiant(3201854, "Louis"),
-                new Etudiant(4337602, "Mona"),
-                new Etudiant(5498321, "Nathan"),
-                new Etudiant(6571984, "Olivia"),
-                new Etudiant(7612493, "Paul"),
-                new Etudiant(8793461, "Quincy"),
-                new Etudiant(9834527, "Rachel"),
-                new Etudiant(1056743, "Sam"),
-                new Etudiant(2187630, "Tina"),
-                new Etudiant(3265984, "Ursula"),
-                new Etudiant(4306715, "Victor"),
-                new Etudiant(5394120, "Wendy"),
-                new Etudiant(6412309, "Xander"),
-                new Etudiant(7523018, "Yara"),
-                new Etudiant(8654092, "Zane"),
-                new Etudiant(9735084, "Amy"),
-                new Etudiant(1087416, "Ben"),
-                new Etudiant(2158367, "Clara"),
-                new Etudiant(3267419, "Daniel")
+            "420-210",
+            new ArrayList<>(
+                Arrays.asList(
+                    new Etudiant(1832491, "Alice"),
+                    new Etudiant(2468103, "Bob"),
+                    new Etudiant(3726145, "Charlie"),
+                    new Etudiant(4859021, "David"),
+                    new Etudiant(5983472, "Eve"),
+                    new Etudiant(6129048, "Frank"),
+                    new Etudiant(7235146, "Grace"),
+                    new Etudiant(8376012, "Hannah"),
+                    new Etudiant(9453023, "Isaac"),
+                    new Etudiant(1023485, "Jack"),
+                    new Etudiant(2135749, "Karen"),
+                    new Etudiant(3201854, "Louis"),
+                    new Etudiant(4337602, "Mona"),
+                    new Etudiant(5498321, "Nathan"),
+                    new Etudiant(6571984, "Olivia"),
+                    new Etudiant(7612493, "Paul"),
+                    new Etudiant(8793461, "Quincy"),
+                    new Etudiant(9834527, "Rachel"),
+                    new Etudiant(1056743, "Sam"),
+                    new Etudiant(2187630, "Tina"),
+                    new Etudiant(3265984, "Ursula"),
+                    new Etudiant(4306715, "Victor"),
+                    new Etudiant(5394120, "Wendy"),
+                    new Etudiant(6412309, "Xander"),
+                    new Etudiant(7523018, "Yara"),
+                    new Etudiant(8654092, "Zane"),
+                    new Etudiant(9735084, "Amy"),
+                    new Etudiant(1087416, "Ben"),
+                    new Etudiant(2158367, "Clara"),
+                    new Etudiant(3267419, "Daniel")
+                )
             )
         );
         for(int i = 0; i < groupe4.etudiants.size() ; i++){
@@ -56,26 +61,22 @@ public class Exo010 {
 }
 class Groupe{
     String nomCours;
-    ArrayList<Etudiant> etudiants = new ArrayList<>();
-    public Groupe(List<Etudiant> etudiants){
-        this.etudiants.addAll(etudiants);
+    ArrayList<Etudiant> etudiants;
+
+    public Groupe(String nomCours, ArrayList<Etudiant> etudiants ){
+        this.nomCours = nomCours;
+        this.etudiants = etudiants;
     }
 
-    public byte moyenneGenerale(){
-        int somme = 0;
-        for(int i = 0 ; i < etudiants.size() ; i++){
-            somme += etudiants.get(i).noteFinale();
-        }
-        return (byte) (somme/etudiants.size());
-    }
-    public void afficheResultats() {
-        for(int i = 0; i < this.etudiants.size() ; i++){
+    public void afficheResultats(){
+        for(int i = 0 ; i < this.etudiants.size() ; i++){
             this.etudiants.get(i).afficheResultat();
         }
     }
     public void trierParNote(){
-        Collections.sort(this.etudiants,(etudiant1,etudiant2) -> -1 * Byte.compare(etudiant1.noteFinale(),etudiant2.noteFinale()));
+        Collections.sort(this.etudiants, (etudiant1,etudiant2) -> -1 *Byte.compare(etudiant1.noteFinale(),etudiant2.noteFinale()));
     }
+
 }
 
 
