@@ -74,7 +74,7 @@ class Groupe{
         }
     }
     public void trierParNote(){
-        Collections.sort(this.etudiants, (etudiant1,etudiant2) -> -1 *Byte.compare(etudiant1.noteFinale(),etudiant2.noteFinale()));
+        Collections.sort(this.etudiants, (etudiant1,etudiant2) -> -1 * Byte.compare(etudiant1.noteFinale(),etudiant2.noteFinale()));
     }
 
 }
