@@ -36,7 +36,7 @@ public class Main {
         //2.1 J'assigne à toutes les Cases de sudoku l'objet Case avec les bons paramètres initials
         for(int i = 0; i < 9 ; i++){
             for(int j = 0; j < 9 ; j++){
-                sudoku[i][j] = new Case(i, j);
+                sudoku[i][j] = new Case(new Coordonne(i, j));
             }
         }
         
@@ -383,7 +383,7 @@ public class Main {
 
     }
     public static void test2_5(Groupes[] groupes){
-        if(!Arrays.deepEquals(groupes[8].cases[6].valeurPossible,new Boolean[]{false,true,true,false,false,true,false,false,false})){
+        if(!Arrays.deepEquals(groupes[8].cases[6].valeurPossibles,new Boolean[]{false,true,true,false,false,true,false,false,false})){
             System.out.println("Test 2.5 Failed");
             System.exit(0);
         }

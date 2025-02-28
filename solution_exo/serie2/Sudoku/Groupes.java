@@ -4,26 +4,26 @@ public class Groupes {
     Case[] cases = new Case[9];
     int nbLeft = 9;
 
-    Boolean[] valeurPossible = {true,true,true,true,true,true,true,true,true};
+    Boolean[] valeurPossibles = {true,true,true,true,true,true,true,true,true};
 
     public Groupes(Case[][] sudoku, Coordonne[] coords){
         for(int idx = 0 ; idx < cases.length ; idx++){
             this.cases[idx] = sudoku[coords[idx].x][coords[idx].y];
         }
     }
-    public void afficheValeurPossible(){
+    public void afficheValeurPossibles(){
         String msg = "";
         for(int i = 0; i < 9; i++){
-            msg += (i + 1) + ":" + this.valeurPossible[i] + " ";
+            msg += (i + 1) + ":" + this.valeurPossibles[i] + " ";
         }
         System.out.println(msg);
     }
     public void retirerValeurPossible(int val){
         for(int i = 0; i < 9 ; i++){
-                cases[i].valeurPossible[ val - 1 ] = false;
+                cases[i].valeurPossibles[ val - 1 ] = false;
                
         }
-        this.valeurPossible[val - 1] = false;
+        this.valeurPossibles[val - 1] = false;
         nbLeft--;
 
     }
@@ -33,9 +33,9 @@ public class Groupes {
         int nbPoss;
         for(int i = 0 ; i < 9 ; i++){
             nbPoss = 0;
-            if(this.valeurPossible[i]){
+            if(this.valeurPossibles[i]){
                 for(int j = 0 ; j < 9 ; j++){
-                    if(cases[j].valeurPossible[i]){
+                    if(cases[j].valeurPossibles[i]){
                         if(cases[j].isLastPossible(i+1)){
                             cases[j].setValue(i+1);
                             return j;
@@ -65,7 +65,7 @@ public class Groupes {
         Case[][] sudoku = new Case[9][9];
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
-                sudoku[i][j] = new Case(i, j);  // Crée un sudoku avec des cases vides
+                sudoku[i][j] = new Case(new Coordonne(i, j));  // Crée un sudoku avec des cases vides
             }
         }
     
@@ -80,13 +80,13 @@ public class Groupes {
         Groupes groupe = new Groupes(sudoku, coords);
     
         //Afficher les valeurs possibles
-        groupe.afficheValeurPossible();
+        groupe.afficheValeurPossibles();
 
         // Retirer une valeur possible (par exemple, la valeur 5) du groupe
         groupe.retirerValeurPossible(5);
 
         //5 devrait être retiré
-        groupe.afficheValeurPossible();
+        groupe.afficheValeurPossibles();
     
         testFindPlaceable(groupe, "Ne devrait pas placer : ");
 
@@ -104,11 +104,11 @@ public class Groupes {
       
         groupe.retirerValeurPossible(9);
         testFindPlaceable(groupe, "Devrait placer à l'index 0 : ");
-        groupe.afficheValeurPossible();
+        groupe.afficheValeurPossibles();
 
        
         groupe.retirerValeurPossible(7);
-        groupe.afficheValeurPossible();
+        groupe.afficheValeurPossibles();
         testFindPlaceable(groupe, "Ne devrait pas placer : ");
 
 
@@ -121,7 +121,7 @@ public class Groupes {
 
 
         //Mettre une case mûre
-        groupe.cases[3].valeurPossible = new Boolean[]{false,true,false,false,false,false,false,false,false};
+        groupe.cases[3].valeurPossibles = new Boolean[]{false,true,false,false,false,false,false,false,false};
         
         //Should place at index 3
         testFindPlaceable(groupe,"Devrait placer à l'index 3 : ");
