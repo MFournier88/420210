@@ -3,19 +3,17 @@ import java.util.Scanner;
 
 public class Exo015 {
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        try {
-            int n = scan.nextInt();
-            int result = 10 / n;  // Division par zéro qui va lever une exception ArithmeticException
+        try{
+            System.out.println("Prénom :" + args[0] + " Nom :" + args[1]);
+        }catch(ArrayIndexOutOfBoundsException e){
+            System.out.print("Vous deviez mettre votre prénom et nom en argument, mais vous pouvez encore le faire ici : ");
+            Scanner scan = new Scanner(System.in);
+            String prenom = scan.next();
+            String nom = scan.next();
+            System.out.println("Prénom :" + prenom + " Nom :" + nom);
 
-        } catch (ArithmeticException e) {
-            System.out.println("0 n'est pas une entrée valide");
-        } 
-        catch(InputMismatchException e){
-            System.out.println("Il faut entrer un entier");
-
-        }finally {
-            System.out.println("Bloc finally exécuté.");
+            
+            
         }
     }
 }
