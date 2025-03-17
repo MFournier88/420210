@@ -43,6 +43,7 @@ public class Q2Examen2 {
                 System.out.println("Liste :");
                 for(int i = 0 ; i < noms.size() ; i++){
                     noteFormat= String.format("%d",notes.get(i));
+                    System.out.printf("%-30s %s",noms.get(i), noteFormat);
                     System.out.println(noms.get(i) + " ".repeat(35 - noms.get(i).length() - noteFormat.length()) + noteFormat);
                 }
                 System.out.println("------------------------------------");
@@ -55,6 +56,7 @@ public class Q2Examen2 {
             }
             else if(choix.equals("3")){
                 System.out.println("\nAurevoir!");
+                break;
             }
         }
     }

@@ -1,12 +1,17 @@
 import java.util.Arrays;
-
+import java.util.Random;
 public class Exo020DualPivots{
     public static void main(String args[]){
-        
-        int[] tableau = new int[18000];
+        Random rand = new Random(1);
+        int[] tableau = new int[10000];
+        // int[] tableau = {110,100,0};
         for (int i = 0; i < tableau.length ; i++){
-            tableau[i] = (int)(Math.random()*65536) + 1;
+            tableau[i] = rand.nextInt(65536);
+            // tableau[i] = (int)(Math.random()*65536) + 1;
+            // tableau[i] = 2;
+
         }
+        // tableau[0] = 3;
         // afficheTableau(tableau);
         int[] tableau2 = Arrays.copyOf(tableau, tableau.length);
         int[] tableau3 = Arrays.copyOf(tableau, tableau.length);
@@ -20,6 +25,7 @@ public class Exo020DualPivots{
         long debutV2 = System.nanoTime();
         quickSortV1(tableau2, 0, tableau.length - 1);
         long finV2 = System.nanoTime();
+        // afficheTableau(tableau2);
 
         long debutV3 = System.nanoTime();
         GFG.dualPivotQuickSort(tableau3, 0, tableau.length - 1);
@@ -32,9 +38,12 @@ public class Exo020DualPivots{
         if(checkIfSorted(tableau2)){
             System.out.println("Wouhou!");
         }
-        if(checkIfSorted(tableau3)){
-            System.out.println("Wouhou!");
+        else{
+            System.err.println("Erreur");
         }
+        // if(checkIfSorted(tableau3)){
+        //     System.out.println("Wouhou!");
+        // }
 
       
 
@@ -61,45 +70,89 @@ public class Exo020DualPivots{
     }
  
     public static void quickSortV1(int[] tableau, int start, int end){
-        if (start >= end) {
+
+        int nb = end - start;
+
+        if (nb < 1) {
             return;
         }
+
+
         int mem = 0;
+        if(end - start > 10){
+            
+            int togPivot = (end-start) / 2 + start;
+            mem = tableau[togPivot];
+            tableau[togPivot] = tableau[end];
+            tableau[end] = mem;
+            togPivot--;
+            mem = tableau[togPivot];
+            tableau[togPivot] = tableau[start];
+            tableau[start] = mem;
+        }
         
         if(tableau[start] > tableau[end]){
             mem = tableau[end];
             tableau[end] = tableau[start];
             tableau[start] = mem;
         }
-        if(end-start < 2){
+        if(nb < 3){
+            if(nb == 2){
+                if(tableau[start + 1] > tableau[end]){
+                    mem = tableau[end];
+                    tableau[end] = tableau[start + 1];
+                    tableau[start + 1] = mem;
+                    return;
+                }
+                if(tableau[start + 1] < tableau[start]){
+                    mem = tableau[start];
+                    tableau[start] = tableau[start + 1];
+                    tableau[start + 1] = mem;
+                    return;
+                }
+            }
             return;
         }
+    
         
 
-
-
+        int nbDoublon1 = 0;
+        int nbDoublon2 = 0;
         int indiceStart = start;
         int indiceMid = start+1;
         int indiceFin = end;
        
         while(indiceMid != indiceFin){
-            if(tableau[indiceFin - 1] >= tableau[indiceFin]){
+            if(tableau[indiceFin - 1] > tableau[indiceFin]){
                 mem = tableau[indiceFin];
-                tableau[indiceFin] = tableau[indiceFin - 1];
+                tableau[indiceFin + nbDoublon2] = tableau[indiceFin - 1];
                 tableau[indiceFin - 1] = mem;
                 indiceFin--;
             }
-            else if(tableau[indiceFin - 1] >= tableau[indiceStart]){
+            else if(tableau[indiceFin - 1] == tableau[indiceFin]){
+                nbDoublon2++;
+                indiceFin--;
+            }
+            else if(tableau[indiceFin - 1] > tableau[indiceStart]){
                 mem = tableau[indiceFin - 1];
                 tableau[indiceFin - 1] = tableau[indiceMid];
                 tableau[indiceMid] = mem;
                 indiceMid++;
             }
+            else if(tableau[indiceFin - 1] == tableau[indiceStart]){
+                mem = tableau[indiceFin - 1];
+                tableau[indiceFin - 1] = tableau[indiceMid];
+                tableau[indiceMid] = tableau[indiceStart + nbDoublon1 + 1];
+                tableau[indiceStart + nbDoublon1 + 1] = mem;
+                
+                nbDoublon1++;
+                indiceMid++;
+            }
             else{
                 mem = tableau[indiceFin - 1];
                 tableau[indiceFin - 1] = tableau[indiceMid];
-                tableau[indiceMid] = tableau[indiceStart + 1];
-                tableau[indiceStart + 1] = tableau[indiceStart];
+                tableau[indiceMid] = tableau[indiceStart + nbDoublon1 + 1];
+                tableau[indiceStart + nbDoublon1 + 1] = tableau[indiceStart];
                 tableau[indiceStart] = mem;
                 indiceStart++;
                 indiceMid++;
@@ -108,8 +161,8 @@ public class Exo020DualPivots{
         
        
         quickSortV1(tableau, start, indiceStart-1);
-        quickSortV1(tableau, indiceStart + 1, indiceFin-1);
-        quickSortV1(tableau, indiceFin+1, end);
+        quickSortV1(tableau, indiceStart + nbDoublon1 + 1, indiceFin-1);
+        quickSortV1(tableau, indiceFin + nbDoublon2 + 1, end);
         
 
     }
@@ -128,7 +181,7 @@ public class Exo020DualPivots{
         System.out.print("]\n");
     }
     public static boolean checkIfSorted(int[] tableau){
-        int somme = 0;
+        // int somme = 0;
         for(int i = 0; i < tableau.length - 1; i++){
             if(tableau[i] > tableau[i+1]){
                 // System.out.println("Nooooo " + i);
