@@ -18,33 +18,51 @@ public class Exo002 {
 }
 
 class Examen{
- // Attributs
- private String nomEtudiant;
- private byte note;
+    // Attributs
+    private String nomEtudiant;
+    private byte note;
+    
 
- // Constructeur
- public Examen(String nomEtudiant, byte note) {
-     this.nomEtudiant = nomEtudiant;
-     this.note = note;
- }
+    //Getter & Setter
+    public String getNomEtudiant() {
+        return nomEtudiant;
+    }
+    public void setNomEtudiant(String nomEtudiant) {
+        this.nomEtudiant = nomEtudiant;
+    }
+    public byte getNote() {
+        return note;
+    }
+    public void setNote(byte note) {
+        this.note = note;
+    }
+    
 
- // Méthode pour afficher le résultat
- public void afficheResultat() {
-     System.out.println(nomEtudiant + " : " + convertNote());
- }
 
- // Méthode pour convertir la note en lettre
- public String convertNote() {
-     if (note > 90) {
-         return "A";
-     } else if (note > 80) {
-         return "B";
-     } else if (note > 70) {
-         return "C";
-     } else if (note > 60) {
-         return "D";
-     } else {
-         return "E";
-     }
- }
+    // Constructeur
+    public Examen(String nomEtudiant, byte note) {
+        this.nomEtudiant = nomEtudiant;
+        this.note = note;
+    }
+    
+
+    // Méthodes
+    public void afficheResultat() {
+        System.out.println(nomEtudiant + " : " + convertNote());
+    }
+
+    public String convertNote() {
+        if (note > 90) {
+            return "A";
+        } else if (note > 80) {
+            return "B";
+        } else if (note > 70) {
+            return "C";
+        } else if (note > 60) {
+            return "D";
+        } else {
+            return "E";
+        }
+    }
+  
 }

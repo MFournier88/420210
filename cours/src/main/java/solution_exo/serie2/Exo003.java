@@ -1,15 +1,33 @@
 package solution_exo.serie2;
 class CompteBancaire {
-    String titulaire;  // Titulaire du compte
-    double solde;      // Solde actuel du compte
+    //Attributs
+    String titulaire;  
+    double solde;   
 
-    // Constructeur pour initialiser le titulaire et le solde
+    //Getter & Setter
+    public String getTitulaire() {
+        return titulaire;
+    }
+
+    public void setTitulaire(String titulaire) {
+        this.titulaire = titulaire;
+    }
+
+    public double getSolde() {
+        return solde;
+    }
+
+    public void setSolde(double solde) {
+        this.solde = solde;
+    }
+    
+    // Constructeur
     public CompteBancaire(String titulaire, double solde) {
         this.titulaire = titulaire;
         this.solde = solde;
     }
 
-    // Méthode pour déposer un montant sur le compte
+    // Méthodes
     public void deposer(double montant) {
         if (montant > 0) {
             solde += montant;
@@ -19,7 +37,6 @@ class CompteBancaire {
         }
     }
 
-    // Méthode pour retirer un montant du compte
     public void retirer(double montant) {
         if (montant > 0 && montant <= solde) {
             solde -= montant;
@@ -31,15 +48,14 @@ class CompteBancaire {
         }
     }
 
-    // Méthode pour afficher le solde du compte
     public void afficherSolde() {
         System.out.println("Solde actuel : " + solde + "€");
     }
 
-    // Méthode pour afficher les informations du titulaire et son solde
     public void afficherInfo() {
         System.out.println("Titulaire : " + titulaire + ", Solde : " + solde + "€");
     }
+    //
 }
 
 public class Exo003 {

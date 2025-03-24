@@ -5,12 +5,12 @@ public class Exo026 {
         Chien chien = new Chien("Rex", 3, "Berger Allemand");
         Chat chat = new Chat("Matou", 12, "Sphinx");
         
-    
         chien.sePresenter();
-        chien.parler();
+        System.out.println(chien.parler());
 
         chat.sePresenter();
-        chat.parler();
+        System.out.println(chat.parler());
+
     }
 }
 class Animal{
@@ -24,11 +24,11 @@ class Animal{
     public String getNom(){
         return this.nom;
     }
-    public int getAge(){
-        return this.age;
-    }
     public void setAge(int age){
         this.age = age;
+    }
+    public int getAge(){
+        return this.age;
     }
     public void setRace(String race){
         this.race = race;

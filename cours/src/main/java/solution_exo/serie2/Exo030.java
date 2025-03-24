@@ -32,7 +32,7 @@ public class Exo030{
                 facture.add(plats[Integer.parseInt(choix) - 1]);
             }
             else if(choix.equals("2")){
-                
+
                 afficherReçu(facture, prix);
 
                 System.out.print("Quel item voulez-vous retirer : ");
@@ -49,8 +49,6 @@ public class Exo030{
                 break;
             }
             scanner.nextLine();
-      
-
         }
     }
     public static void afficherReçu(ArrayList<String> facture, float[] prix){
@@ -59,11 +57,8 @@ public class Exo030{
             total += prix[i];
             String prixFormatter = String.format("%.02f$", prix[i]);
             System.out.printf("%d. %-13s%10.02f$\n",(i+1) , facture.get(i), prix[i]);
-
-
         }
         System.out.println("-".repeat(27));
         System.out.printf("%-16s%10.2f$\n","Total", total);
-        
     }
 }

@@ -19,7 +19,8 @@ public class Voiture extends Vehicule {
 
 
     protected void afficherInfoVoiture() {
-        afficherInfo(); // Appel de la méthode de la superclasse
+        super.afficherInfo(); // Appel de la méthode de la superclasse
+        
         System.out.println("Nombre de portes: " + nombreDePortes);
     }
 

@@ -1,7 +1,17 @@
 package solution_exo.serie2;
 
 public class Exo028 {
+    public static void main(String[] args) {
+        Personne personne = new Personne("Jean", 40, "10 rue des Lilas");
+        Etudiant etudiant = new Etudiant("Marie", 22, "15 rue de la Paix", "Informatique", "E123");
+        Professeur professeur = new Professeur("Mr. Dupont", 45, "12 avenue des Champs", "Mathématiques", 2500.00);
     
+        personne.sePresenter();
+        etudiant.seDecrire();
+        etudiant.etudier();
+        professeur.seDecrire();
+        professeur.enseigner();
+    }
 }
 class Personne{
     protected String nom;
@@ -60,6 +70,13 @@ class Etudiant extends Personne{
 
     }
 
+    public void etudier(){
+        System.out.printf("L'étudiant %s étudie %s\n",this.nom, this.filiere);
+    }
+    public void seDecrire(){
+        super.sePresenter();
+        System.out.printf("Je suis en filière %s, Numéro étudiant: %s\n", this.filiere, this.numEtudiant);
+    }
 }
 class Professeur extends Personne{
     protected String matiere;
@@ -79,7 +96,14 @@ class Professeur extends Personne{
     }
     public Professeur(String nom, int age, String adresse, String matiere, double salaire){
         super(nom, age, adresse);
-
+        this.setMatiere(matiere);
+        this.setSalaire(salaire);
     }
-    
+    public void enseigner(){
+        System.out.printf("L'enseignant %s enseigne %s\n",this.nom, this.matiere);
+    }
+    public void seDecrire(){
+        super.sePresenter();
+        System.out.printf("J'enseigne la matière %s, salaire: %.02f€\n", this.matiere, this.salaire);
+    }
 }

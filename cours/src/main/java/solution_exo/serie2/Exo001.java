@@ -2,20 +2,41 @@ package solution_exo.serie2;
 import java.util.ArrayList;
 
 class Personne {
-    String nom;
-    int age;
+    //Attributs
+    private String nom;
+    private int age;
+    
 
-    // Constructeur pour initialiser les attributs
+    //Setter & Getter
+    public String getNom() {
+        return nom;
+    }
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
+   
+
+    //Constructeur
     public Personne(String nom, int age) {
         this.nom = nom;
         this.age = age;
     }
+   
+
+    //Méthodes
     @Override
     public String toString(){
         return "Nom : " + this.nom + ", Âge : " + this.age;
-    }
+    }    
 }
 
+//Main
 public class Exo001 {
     public static void main(String[] args) {
         // Création d'un ArrayList de Personne
