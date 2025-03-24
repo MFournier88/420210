@@ -1,4 +1,4 @@
-package games.tictactoe;
+package solution_exo.serie2.tictactoe.src.main.java.games.tictactoe;
 import java.util.Scanner;
 
 public class TicTacToe {

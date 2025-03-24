@@ -1,4 +1,4 @@
-package chatgpt;
+package solution_exo.serie2;
 
 // Classe parent Vendeur
 class Vendeur {
@@ -6,6 +6,7 @@ class Vendeur {
     protected double salaireDeBase;
     protected double tauxCommission;
     protected double ventes;
+
     // Constructeur de la classe Vendeur
     public Vendeur(String nom, double salaireDeBase, double tauxCommission, double ventes) {
         this.nom = nom;
@@ -19,7 +20,8 @@ class Vendeur {
     // Méthode d'affichage des détails d'un vendeur
     @Override
     public String toString() {
-        return String.format("Nom : %s\nSalaire de base : %.2f €\nTotal des commissions : %.2f\nSalaire total : %.2f\n", this.nom, this.salaireDeBase, (this.ventes * tauxCommission),(this.ventes * this.tauxCommission + this.salaireDeBase));
+        return String.format("Nom : %s\nSalaire de base : %.2f €\nTotal des commissions : %.2f\nSalaire total : %.2f\n",
+         this.nom, this.salaireDeBase, (this.ventes * tauxCommission),(this.ventes * this.tauxCommission + this.salaireDeBase));
     }
 }
 
@@ -33,11 +35,6 @@ class VendeurMagasin extends Vendeur {
         this.nombreVentes = nombreVentes;
     }
 
-    // Méthode d'affichage des détails d'un vendeur
-    @Override
-    public String toString() {
-        return String.format("Nom : %s\nSalaire de base : %.2f €\nTotal des commissions : %.2f\nSalaire total : %.2f\n", this.nom, this.salaireDeBase, (this.ventes * tauxCommission),(this.ventes * this.tauxCommission + this.salaireDeBase));
-    }
 }
 
 // Classe enfant VendeurEnLigne qui hérite de Vendeur
@@ -53,12 +50,13 @@ class VendeurEnLigne extends Vendeur {
     // Méthode d'affichage des détails d'un vendeur
     @Override
     public String toString() {
-        return String.format("Nom : %s\nSalaire de base : %.2f €\nTotal des commissions : %.2f\nSalaire total : %.2f\n", this.nom, this.salaireDeBase, (this.ventes * tauxCommission) + this.nombreClics *0.5,(this.ventes * this.tauxCommission + this.nombreClics *0.5 + this.salaireDeBase));
+        return String.format("Nom : %s\nSalaire de base : %.2f €\nTotal des commissions : %.2f\nSalaire total : %.2f\n",
+         this.nom, this.salaireDeBase, (this.ventes * tauxCommission) + this.nombreClics *0.5,(this.ventes * this.tauxCommission + this.nombreClics *0.5 + this.salaireDeBase));
     }
 }
 
 // Classe principale
-public class Main {
+public class Exo033 {
     public static void main(String[] args) {
         // Création d'un vendeur en magasin
         VendeurMagasin vendeurMagasin = new VendeurMagasin("Jean Dupont", 1500, 0.05, 10000 ,200);
