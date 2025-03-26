@@ -15,13 +15,15 @@ class Vendeur {
         this.ventes = ventes;
     }
 
-   
+    public double getCommissionTotal(){
+        return this.ventes * this.tauxCommission;
+    }
 
     // Méthode d'affichage des détails d'un vendeur
     @Override
     public String toString() {
         return String.format("Nom : %s\nSalaire de base : %.2f €\nTotal des commissions : %.2f\nSalaire total : %.2f\n",
-         this.nom, this.salaireDeBase, (this.ventes * tauxCommission),(this.ventes * this.tauxCommission + this.salaireDeBase));
+         this.nom, this.salaireDeBase, this.getCommissionTotal(),(this.getCommissionTotal() + this.salaireDeBase));
     }
 }
 
@@ -47,12 +49,16 @@ class VendeurEnLigne extends Vendeur {
         this.nombreClics = nombreClics;
     }
 
-    // Méthode d'affichage des détails d'un vendeur
     @Override
-    public String toString() {
-        return String.format("Nom : %s\nSalaire de base : %.2f €\nTotal des commissions : %.2f\nSalaire total : %.2f\n",
-         this.nom, this.salaireDeBase, (this.ventes * tauxCommission) + this.nombreClics *0.5,(this.ventes * this.tauxCommission + this.nombreClics *0.5 + this.salaireDeBase));
+    public double getCommissionTotal(){
+        return this.nombreClics * 0.5 + this.ventes * this.tauxCommission;
     }
+//     // Méthode d'affichage des détails d'un vendeur
+//     @Override
+//     public String toString() {
+//         return String.format("Nom : %s\nSalaire de base : %.2f €\nTotal des commissions : %.2f\nSalaire total : %.2f\n",
+//          this.nom, this.salaireDeBase, (this.ventes * tauxCommission) + this.nombreClics * 0.5,(this.ventes * this.tauxCommission + this.nombreClics *0.5 + this.salaireDeBase));
+//     }
 }
 
 // Classe principale
@@ -69,4 +75,12 @@ public class Exo033 {
        
         System.out.println(vendeurEnLigne);
     }
+}
+
+class X{}
+class Y extends X{}
+
+
+public String toString(){
+    
 }

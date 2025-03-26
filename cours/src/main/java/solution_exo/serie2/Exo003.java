@@ -1,8 +1,8 @@
 package solution_exo.serie2;
 class CompteBancaire {
     //Attributs
-    String titulaire;  
-    double solde;   
+    private String titulaire;  
+    private double solde;   
 
     //Getter & Setter
     public String getTitulaire() {
@@ -14,7 +14,7 @@ class CompteBancaire {
     }
 
     public double getSolde() {
-        return solde;
+        return this.solde;
     }
 
     public void setSolde(double solde) {
@@ -30,7 +30,7 @@ class CompteBancaire {
     // Méthodes
     public void deposer(double montant) {
         if (montant > 0) {
-            solde += montant;
+            this.solde += montant;
             System.out.println("Montant déposé : " + montant + "€");
         } else {
             System.out.println("Le montant à déposer doit être positif.");
@@ -38,10 +38,10 @@ class CompteBancaire {
     }
 
     public void retirer(double montant) {
-        if (montant > 0 && montant <= solde) {
-            solde -= montant;
+        if (montant > 0 && montant <= this.solde) {
+            this.solde -= montant;
             System.out.println("Montant retiré : " + montant + "€");
-        } else if (montant > solde) {
+        } else if (montant > this.solde) {
             System.out.println("Solde insuffisant. Retrait impossible.");
         } else {
             System.out.println("Le montant à retirer doit être positif.");
@@ -49,11 +49,11 @@ class CompteBancaire {
     }
 
     public void afficherSolde() {
-        System.out.println("Solde actuel : " + solde + "€");
+        System.out.println("Solde actuel : " + this.solde + "€");
     }
 
     public void afficherInfo() {
-        System.out.println("Titulaire : " + titulaire + ", Solde : " + solde + "€");
+        System.out.println("Titulaire : " + this.titulaire + ", Solde : " + this.solde + "€");
     }
     //
 }

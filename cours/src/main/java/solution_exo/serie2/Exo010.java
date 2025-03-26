@@ -48,9 +48,9 @@ public class Exo010 {
                 )
             )
         );
-        for(int i = 0; i < groupe4.etudiants.size() ; i++){
-            for(int j = 0 ; j < groupe4.etudiants.get(i).evaluations.length ; j++){
-                groupe4.etudiants.get(i).evaluations[j].noteSur100 = (byte) (random.nextInt(71) + 30);
+        for(int i = 0; i < groupe4.nbEtudiants() ; i++){
+            for(int j = 0 ; j < groupe4.getEtudiant(i).getNbEvaluation() ; j++){
+                groupe4.getEtudiant(i).getEvaluation(j).setNoteSur100((byte) (random.nextInt(71) + 30));
             }
         }
         groupe4.afficheResultats();
@@ -61,36 +61,74 @@ public class Exo010 {
     }   
 }
 class Groupe{
-    String nomCours;
-    ArrayList<Etudiant> etudiants;
+    private String nomCours;
+    private ArrayList<Etudiant> etudiants;
 
     public Groupe(String nomCours, ArrayList<Etudiant> etudiants ){
         this.nomCours = nomCours;
         this.etudiants = etudiants;
     }
-
+    public Etudiant getEtudiant(int index){
+        return etudiants.get(index);
+    }
+    public int nbEtudiants(){
+        return etudiants.size();
+    }
     public void afficheResultats(){
         for(int i = 0 ; i < this.etudiants.size() ; i++){
             this.etudiants.get(i).afficheResultat();
         }
     }
     public void trierParNote(){
-        Collections.sort(this.etudiants, (etudiant1,etudiant2) -> -1 * Byte.compare(etudiant1.noteFinale(),etudiant2.noteFinale()));
-    }
+        // Collections.sort(this.etudiants, (etudiant1,etudiant2) -> etudiant1.nomComplet.compareTo(etudiant2.nomComplet));
 
+        Collections.sort(this.etudiants, (etudiant1,etudiant2) -> compare(etudiant1, etudiant2));
+        // Collections.sort(this.etudiants, (etudiant1,etudiant2) -> -1 * Byte.compare(etudiant1.noteFinale(),etudiant2.noteFinale()));
+    }
+    public int compare(Etudiant etudiant1, Etudiant etudiant2){
+        int result = -1 * Byte.compare(etudiant1.noteFinale(),etudiant2.noteFinale());
+        if(result == 0){
+            result = etudiant1.getNomComplet().compareTo(etudiant2.getNomComplet());
+        }
+        return result;
+    }
 }
 
 
 class Etudiant{
-    int da;
-    String nomComplet;
-    String courriel;
-    Evaluation[] evaluations = {
+    private int da;
+    private String nomComplet;
+    private String courriel;
+    private Evaluation[] evaluations = {
         new Evaluation("Examen 1", 0.2f),
         new Evaluation("Examen 2", 0.3f),
         new Evaluation("Examen Final", 0.5f),
     };
     
+    public int getDa() {
+        return da;
+    }
+    public void setDa(int da) {
+        this.da = da;
+    }
+    public String getNomComplet() {
+        return nomComplet;
+    }
+    public void setNomComplet(String nomComplet) {
+        this.nomComplet = nomComplet;
+    }
+    public String getCourriel() {
+        return courriel;
+    }
+    public void setCourriel(String courriel) {
+        this.courriel = courriel;
+    }
+    public Evaluation getEvaluation(int index){
+        return this.evaluations[index];
+    }
+    public int getNbEvaluation(){
+        return this.evaluations.length;
+    }
     public Etudiant(int da, String nomComplet){
         this.da = da;
         this.nomComplet = nomComplet;
@@ -115,9 +153,9 @@ class Etudiant{
 }
 
 class Evaluation{
-    String nom;
-    float ponderation;
-    byte noteSur100 = 0;
+    private String nom;
+    private float ponderation;
+    private byte noteSur100 = 0;
 
     public Evaluation(String nom,float ponderation){
         this.nom = nom;
@@ -126,7 +164,26 @@ class Evaluation{
     public byte notePonderee(){
         return (byte) (this.ponderation * this.noteSur100);
     }
+    public String getNom() {
+        return nom;
+    }
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+    public float getPonderation() {
+        return ponderation;
+    }
+    public void setPonderation(float ponderation) {
+        this.ponderation = ponderation;
+    }
+    public byte getNoteSur100() {
+        return noteSur100;
+    }
+    public void setNoteSur100(byte noteSur100) {
+        this.noteSur100 = noteSur100;
+    }
 
+    
     
 }
 
