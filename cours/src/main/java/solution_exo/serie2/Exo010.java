@@ -182,9 +182,6 @@ class Evaluation{
     public void setNoteSur100(byte noteSur100) {
         this.noteSur100 = noteSur100;
     }
-
-    
-    
 }
 
 
