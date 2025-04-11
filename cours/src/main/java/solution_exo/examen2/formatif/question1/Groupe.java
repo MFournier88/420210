@@ -1,35 +1,47 @@
 package solution_exo.examen2.formatif.question1;
 
 import java.io.*;
-import java.util.ArrayList;
+import java.util.ArrayList; 
 import java.util.Arrays;
 import java.util.Random;
 import java.util.List;
 import java.util.Collections;
-
+//2 indent
+//2
 public class Groupe {
-
+    //2
     private String nomCours;
     private ArrayList<Etudiant> etudiants;
 
+    //2
     public Groupe(String nomCours, ArrayList<Etudiant> etudiants ){
         this.setNomCours(nomCours);
         this.etudiants = etudiants;
     }
+
+    //1
     public void setNomCours(String nomCours){
         this.nomCours = nomCours;
     }
+
+    //3
     public Etudiant getEtudiant(int index){
         return etudiants.get(index);
     }
+
+    //2
     public int nbEtudiants(){
         return etudiants.size();
     }
+
+    //3
     public void afficheResultats(){
         for(int i = 0 ; i < this.etudiants.size() ; i++){
             this.etudiants.get(i).afficheResultat();
         }
     }
+
+    //12
     public void trierParNote(){
        Collections.sort(this.etudiants, (etudiant1,etudiant2) -> comparerEtudiant(etudiant1, etudiant2));
     }

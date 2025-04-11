@@ -108,7 +108,7 @@ public class Exo071{
 
                 System.out.print("Quel item voulez-vous retirer : ");
                 choix = scanner.nextLine();
-                facture.remove(Integer.parseInt(choix));
+                facture.remove(Integer.parseInt(choix) - 1);
             }
             else if(choix.equals("3")){
                 afficherReçu(facture, prix);
@@ -133,7 +133,7 @@ public class Exo071{
 
 
         }
-        System.out.println("-".repeat(27));
+        System.out.println("---------------------------");
         System.out.printf("%-16s%10.2f$\n","Total", total);
         
     }
