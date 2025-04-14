@@ -3,12 +3,24 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Collections;
+
+
 public class Exo7 {
     static final int NUM_FOOD = 100;
     static final int NUM_PLAYER = 4;
     static final int NUM_BOSS = 4;
     static final int OBJECT_WIDTH = 15;
     static final int NB_OBJ_PER_LINE = 10;
+    public static String highLight(String msg, String color){
+        switch (color) {
+            case "red":
+                return String.format("\u001B[41m%-" + OBJECT_WIDTH + "s\u001B[0m", msg);
+                
+        
+            default:
+                return msg;
+        }
+    }
     public static void main(String[] args) throws InterruptedException {
         
         Random rand = new Random(213);
@@ -75,6 +87,13 @@ public class Exo7 {
             if((i + nbRemoved) % NB_OBJ_PER_LINE == 0 && i != 0 ){
                 System.out.print("\033[B\r"); // Moves cursor down one line
             }
+
+            //hightlight before action
+            System.out.print(highLight(game.get(i).toString(), "red"));
+            
+            //go back left
+            System.out.print("\u001B[" + OBJECT_WIDTH + "D");
+
             game.get(i).action(game.get(i+1));
             if(game.get(i).getXp() == 0){
                 game.remove(i);
@@ -256,3 +275,28 @@ class Player extends Objet{
         return String.format("P(%s)[%d:%d]",this.nom, this.power(), this.xp);
     }
 }
+
+
+/* HighLights
+Noir	\u001B[40m
+Rouge	\u001B[41m
+Vert	\u001B[42m
+Jaune	\u001B[43m
+Bleu	\u001B[44m
+Magenta	\u001B[45m
+Cyan	\u001B[46m
+Blanc	\u001B[47m
+
+end \u001B[0m
+ */
+
+ /*
+ Aller à la ligne X, colonne Y	\u001B[<X>;<Y>H ou f
+Déplacer le curseur vers le haut N	\u001B[<N>A
+Vers le bas	\u001B[<N>B
+À droite	\u001B[<N>C
+À gauche	\u001B[<N>D
+Effacer l’écran	\u001B[2J
+Effacer la ligne	\u001B[2K
+Revenir au début de la ligne	\r 
+*/
