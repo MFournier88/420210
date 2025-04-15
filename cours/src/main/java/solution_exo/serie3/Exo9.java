@@ -1,168 +1,120 @@
 package solution_exo.serie3;
 
 public class Exo9 {
+
     public static void main(String[] args) {
-        
-        Prof maxime = new Prof("Maxime");
-
-        Tuteur tuteur1 = new Tuteur("Léa");
-        Tuteur tuteur2 = new Tuteur("Julien");
-        Tuteur tuteur3 = new Tuteur("Sophie");
-        
-        EtudiantInformatique etudiant1 = new EtudiantInformatique("Lucas");
-        EtudiantInformatique etudiant2 = new EtudiantInformatique("Emma");
-        EtudiantInformatique etudiant3 = new EtudiantInformatique("Hugo");
-        EtudiantInformatique etudiant4 = new EtudiantInformatique("Chloé");
-        EtudiantInformatique etudiant5 = new EtudiantInformatique("Nathan");
-        EtudiantInformatique etudiant6 = new EtudiantInformatique("Jade");
-        EtudiantInformatique etudiant7 = new EtudiantInformatique("Noah");
-        EtudiantInformatique etudiant8 = new EtudiantInformatique("Inès");
-        
-        
-        Personne[] tous = {
-            maxime,
-            tuteur1,
-            tuteur2,
-            tuteur3,
-            etudiant1,
-            etudiant2,
-            etudiant3,
-            etudiant4,
-            etudiant5,
-            etudiant6,
-            etudiant7,
-            etudiant8,
+       
+        Etudiant etudiant = new Etudiant("Marie", 22, "15 rue de la Paix", "Informatique", "E123");
+        Professeur professeur = new Professeur("Mr. Dupont", 45, "12 avenue des Champs", "Mathématiques", 2500.00);
+    
+        Personne[] personnes = {
+            etudiant,
+            professeur
         };
-        Employer[] listeEmployer = {
-            maxime,
-            tuteur1,
-            tuteur2,
-            tuteur3
-        };
-        
-        
-        Etudiant[] listeEtudiant = {
-            etudiant1,
-            etudiant2,
-            etudiant3,
-            etudiant4,
-            etudiant5,
-            etudiant6,
-            etudiant7,
-            etudiant8,
-            tuteur1,
-            tuteur2,
-            tuteur3
-        };
-        for(Personne personne : tous){
-            personne.afficheInfo();
-        }
+        etudiant.etudier();
+        professeur.enseigner();
 
-        System.out.println("---------------------------");
-        for(Employer employe : listeEmployer){
-            employe.showImplementation();
+        for(Personne personne : personnes){
+            personne.seDecrire();
         }
-        System.out.println("---------------------------");
-        for(Etudiant etudiant : listeEtudiant){
-            etudiant.showImplementation();
-        }
-        System.out.println("---------------------------");        
-        
-        for(Employer employe : listeEmployer){
-            employe.paie();
-        }
-        
-        System.out.println("---------------------------");
-
-        for(Personne personne : tous){
-            personne.afficheInfo();
-        }      
     }
 }
+abstract class Personne{
+    protected String nom;
+    protected int age;
+    protected String adresse;
 
-interface Personne{
-    abstract public void afficheInfo();
-}
-
-interface Employer{
-    abstract public void paie();
-    default public void showImplementation(){
-        System.out.println("Je suis un employé");
-    }
-
-
-}
-
-interface Etudiant{
-    abstract public  boolean presence();
-    default public void showImplementation(){
-        System.out.println("Je suis un Etudiant");
-    }
-}
-
-class Prof implements Employer, Personne{
-    String nom;
-    int banque = 0;
-
-
-    public Prof(String nom) {
+    public void setNom(String nom){
         this.nom = nom;
     }
-
-    public void paie(){
-        this.banque += 2000;
+    public String getNom(){
+        return this.nom;
     }
-    public void afficheInfo(){
-        System.out.println("Je suis le professeur " + this.nom + " : Banque -> " + this.banque);
+    public void setAge(int age){
+        this.age = age;
     }
-}
-
-class Tuteur implements Employer, Etudiant, Personne{
-
-    int banque = 0;
-
-    String nom;
-
-
-    public Tuteur(String nom) {
-        this.nom = nom;
+    public int getAge(){
+        return this.age;
     }
-
-    public boolean presence(){
-        return (Math.random() * 10 + 1) <= 9 ? true : false;
-    };
-
-
-
-    public void paie(){
-        this.banque += 100;
+    public void setAdresse(String adresse){
+        this.adresse = adresse;
+    }
+    public String getAdresse(){
+        return this.adresse;
+    }
+    public Personne(String nom, int age, String adresse){
+        this.setNom(nom);
+        this.setAge(age);
+        this.setAdresse(adresse);
     }
 
-    public void showImplementation(){
-        System.out.println("Je suis un étudiant et un employé");
-    }
 
-    public void afficheInfo(){
-        System.out.println("Je suis l'étudiant " + this.nom + " : Banque -> " + this.banque);
+    abstract void seDecrire();
+
+    public void sePresenter(){
+        System.out.println("Je suis " + this.nom + ", j'ai " + this.age + " ans et mon adresse est " + this.adresse);
     }
 }
+class Etudiant extends Personne{
+    protected String filiere;
+    protected String numEtudiant;
 
-
-
-class EtudiantInformatique implements Etudiant, Personne{
-
-
-    String nom;
-
-    public void afficheInfo(){
-        System.out.println("Je suis l'étudiant " + this.nom);
+    public void setFiliere(String filiere){
+        this.filiere = filiere;
+    }
+    public String getFiliere(){
+        return this.filiere;
     }
 
-    public EtudiantInformatique(String nom) {
-        this.nom = nom;
+    public void setNumEtudiant(String numEtudiant){
+        this.numEtudiant = numEtudiant;
+    }
+    public String getNumEtudiant(){
+        return this.numEtudiant;
+    }
+    public Etudiant(String nom, int age, String adresse, String filiere, String numEtudiant){
+        super(nom, age, adresse);
+        this.setFiliere(filiere);
+        this.setNumEtudiant(numEtudiant);
+
     }
 
-    public boolean presence(){
-        return (Math.random() * 10 + 1) <= 6 ? true : false;
-    };
+    public void etudier(){
+        System.out.printf("L'étudiant %s étudie %s\n",this.nom, this.filiere);
+    }
+    @Override
+    public void seDecrire(){
+        super.sePresenter();
+        System.out.printf("Je suis en filière %s, Numéro étudiant: %s\n", this.filiere, this.numEtudiant);
+    }
+}
+class Professeur extends Personne{
+    protected String matiere;
+    protected double salaire;
+
+    public void setMatiere(String matiere){
+        this.matiere = matiere;
+    }
+    public String getMatiere(){
+        return this.matiere;
+    }
+    public void setSalaire(double salaire){
+        this.salaire = salaire;
+    }
+    public double getSalaire(){
+        return this.salaire;
+    }
+    public Professeur(String nom, int age, String adresse, String matiere, double salaire){
+        super(nom, age, adresse);
+        this.setMatiere(matiere);
+        this.setSalaire(salaire);
+    }
+    public void enseigner(){
+        System.out.printf("L'enseignant %s enseigne %s\n",this.nom, this.matiere);
+    }
+    @Override
+    public void seDecrire(){
+        super.sePresenter();
+        System.out.printf("J'enseigne la matière %s, salaire: %.02f€\n", this.matiere, this.salaire);
+    }
 }

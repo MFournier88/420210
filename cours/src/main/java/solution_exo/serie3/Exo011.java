@@ -2,7 +2,7 @@ package solution_exo.serie3;
 
 import java.util.ArrayList;
 
-public class Exo11 {
+public class Exo011 {
     public static void main(String[] args) {
         String[] nomsEquipes = {
             "Real Madrid", "Manchester City", "Bayern Munich", "Paris SG", "Juventus",
