@@ -8,6 +8,7 @@ public class Exemple2 {
 }
 
 class OutilsGestion{
+    
     static final String MENU = String.format( """
             1. Ajouter un contact
             2. Afficher tous les contact
@@ -65,7 +66,7 @@ class OutilsGestion{
                     
                 default:
                     System.out.println("""
-                            Veuillez choisir un choix parmis ceux dans le menu -> 1,2,3,4
+                            Veuillez choisir un choix parmis ceux dans le menu -> 1,2,3,4, q
                             
                             Appuyer sur entrée pour continuer...
                             """);
@@ -174,23 +175,29 @@ abstract class Contact{
 class Individu extends Contact{
     private byte age;
     private String numTel;
+    
     public byte getAge() {
         return age;
     }
+
     public void setAge(byte age) {
         this.age = age;
     }
+
     public String getNumTel() {
         return numTel;
     }
+
     public void setNumTel(String numTel) {
         this.numTel = numTel;
     }
+
     public Individu(String nom, String courriel, byte age, String numTel) {
         super(nom, courriel);
         this.age = age;
         this.numTel = numTel;
     }
+
     //Format
     @Override
     public String toString() {
