@@ -129,7 +129,7 @@ class Tuteur implements Employer, Etudiant, Personne{
     }
 
     public boolean presence(){
-        return (Math.random() * 10 + 1) <= 9 ? true : false;
+        return (int)(Math.random() * 10 + 1) <= 9 ? true : false;
     };
 
 
@@ -163,6 +163,6 @@ class EtudiantInformatique implements Etudiant, Personne{
     }
 
     public boolean presence(){
-        return (Math.random() * 10 + 1) <= 6 ? true : false;
+        return (int)(Math.random() * 10 + 1) <= 6 ? true : false;
     };
 }

@@ -1,5 +1,28 @@
 package solution_exo.serie4;
 
+
+
+
+
+
+
+/*Chantier */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  /*
  Aller à la ligne X, colonne Y	\u001B[<X>;<Y>H ou f
 Déplacer le curseur vers le haut N	\u001B[<N>A
@@ -10,7 +33,7 @@ Effacer l’écran	\u001B[2J
 Effacer la ligne	\u001B[2K
 Revenir au début de la ligne	\r 
 */
-public class golfOneDay{
+public class Golf{
     final static int ARENA_WIDTH = 128;
     final static int ARENA_HIGHT = 16;
     public static void main(String[] args) throws InterruptedException{
