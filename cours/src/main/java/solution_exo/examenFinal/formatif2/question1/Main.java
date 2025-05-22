@@ -204,18 +204,18 @@ class Cuisine{
     private boolean doitTrier = false;
 
     public void ajouterCommande(String nom, String description, byte priorite, Integer idPreRequis){
-        Commande preRequis = getCommandeById(idPreRequis);
+        Commande preRequis = rechercherCommandeParId(idPreRequis);
         commandes.add(new Commande(prochainId++, nom, description, priorite, preRequis, EtatCommande.EN_COURS));
         doitTrier = true;
     }
     public void ajouterCommande(String nom, String description, byte priorite, Integer idPreRequis, LocalDateTime limite){
-        Commande preRequis = getCommandeById(idPreRequis);
+        Commande preRequis = rechercherCommandeParId(idPreRequis);
         commandes.add(new CommandeAvecLimite(prochainId++, nom, description, priorite, preRequis, EtatCommande.EN_COURS, limite));
         doitTrier = true;
     }
 
 
-    private Commande getCommandeById(Integer idCom){
+    private Commande rechercherCommandeParId(Integer idCom){
         Commande com = null;
         if(idCom != null){
             for (Commande commande : commandes) {
@@ -235,7 +235,7 @@ class Cuisine{
     }
 
     public void marquerServie(int id){
-        getCommandeById(id).marquerServie();
+        rechercherCommandeParId(id).marquerServie();
         doitTrier = true;
     }
 
