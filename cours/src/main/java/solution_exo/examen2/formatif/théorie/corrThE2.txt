@@ -1,0 +1,70 @@
+1
+A:2 B:4 C:5 D:3 E:1
+
+2:
+
+private -> protected -> public
+
+3:
+int -> car 200000 > 32000(short) et < 2_000_000(int)
+
+4:
+Faux
+
+class CompteBancaire{
+	private String titulaire;
+	private double solde; //1
+
+	public String getTitulaire(){
+		return this.titulaire; //2
+	}
+	
+	public void setTitulaire(String titulaire){ //3
+		this.titulaire = titulaire; //4
+	}
+	
+	public double getSolde(){ //5
+		return this.solde;
+	}
+	public void setSolde(double solde){
+		this.solde = solde;
+	}
+
+	public CompteBancaire(String titulaire, double solde){ //6
+		this.setTitulaire(titulaire);
+		this.setSolde(solde); //7
+	}
+
+	public void deposer(double montant){
+		if(montant > 0){
+			this.solde += montant;//8
+			System.out.println("Montant déposé : " + montant);
+		} else {
+			System.out.println("Le montant doit être positif");
+		}
+	}
+
+	public void retirer(double montant){
+		if(montant > 0 && montant <= this.solde){
+			this.solde -= montant;
+			System.out.println("Montant retiré : " + montant);
+		} else if(montant > this.solde){
+			System.out.println("Solde insuffisant");//9
+		} else{
+			System.out.println("Lemontant doit être positif.");
+		}
+	}
+	
+	public void afficherSolde(){//10
+		System.out.println("Solde actuel : " + this.solde);
+	}
+
+	public void afficherInfo(){
+		System.out.println("Titulaire : " + this.titulaire + ", Solde : " + this.solde + " $");
+	}
+}//11
+
+	
+	
+
+}
